@@ -22,15 +22,28 @@
         { 
                 $('.btnIniciar').click(function()
                 {
-			let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
-			let letras='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
 			
                         if($('.txtEmail').val() == "")
                         {
-                                alert("Debe especificar el Email");
+                                alert("Debe especificar el Correo");
                                 $('.txtEmail').focus();
                                 return false;
                         }
+			if($('.txtClave').val() == "")
+                        {
+                                alert("Debe ingresar una clave");
+                                $('.txtClave').focus();
+                                return false;
+                        }
+			
+			let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+                        if(!emailRegex.test($('.txtEmail').val()))
+                        {
+                                alert("El formato del correo no es valido");
+                                $('.txtEmail').focus();
+                                return false;
+                        }
+		});
                         $('.txtEmail').keypress(function(e)
                 	{
                     		let email='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM@._1234567890';
@@ -39,12 +52,6 @@
                     		if(email.indexOf(caracter)<0)
                     			return false;
                 	})
-			if($('.txtClave').val() == "")
-                        {
-                                alert("Debe especificar el Telefono");
-                                $('.txtClave').focus();
-                                return false;
-                        }
 			$('.txtClave').keypress(function(e)
                 	{
                     		let letras='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
@@ -52,10 +59,7 @@
 
                     		if(letras.indexOf(caracter)<0)
                     			return false;
-                	})
-			
-		})
-                
+                	})            
         })        
 </script>
  </head>

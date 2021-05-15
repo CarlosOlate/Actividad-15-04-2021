@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validaciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link href="css.css" rel="stylesheet" type="text/css" />
+        <script>
+                $(function()
+                {
+                        $('.btnRegistrar').click(function() 
+                        {
+                                let codigos       = $('.txtCodigo').val(); 
+                               
+                                if(codigos == "")
+                                {
+                                        alert("Especificar Codigo del producto");
+                                        $('.txtCodigo').focus();
+                                        return false;
+                                }
+                                if($('.txtPrecio').val() == "") 
+                                {
+                                        alert("Especificar Precio costo del producto");
+                                        $('.txtPrecio').focus();
+                                        return false;
+                                }
+                                if($('.txtPesos').val() == "")
+                                {
+                                        alert("Especificar Precio en pesos del producto");
+                                        $('.txtPesos').focus();
+                                        return false;
+                                }
+                                if($('.txtMarca').val() == "")
+                                {
+                                        alert("Especificar Marca del producto");
+                                        $('.txtMarca').focus();
+                                        return false;
+                                }        
+                                                              
+                                alert("Datos especificados:" + 
+                                                "\nCodigo: " + $('.txtCodigo').val()  + 
+                                                "\nPrecio Costo: " + $('.txtPrecio').val()  +
+                                                "\nPrecio en Pesos: " + $('.txtPesos').val()  +
+                                                "\nMarca: " + $('.txtMarca').val() 
+                                );
+                                
+                                return false; 
+                        }); 
+                        var codigo = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890 ';
+                        var pesos= '$1234567890';
+                        var numeros= '1234567890';
+
+                        $('.txtCodigo').keypress(function(e)
+                        {                        
+                                let caracter = String.fromCharCode(e.which);                                
+                                if(codigo.indexOf(caracter) < 0)
+                                        return false;                                
+                        })                        
+                        $('.txtPrecio').keypress(function(e)
+                        {
+                                let caracter = String.fromCharCode(e.which); 
+                                if(numeros.indexOf(caracter) <0)
+                                        return false;
+                        })
+                        $('.txtPesos').keypress(function(e)
+                        {
+                                let caracter = String.fromCharCode(e.which); 
+                                if(pesos.indexOf(caracter) <0)
+                                return false;
+                        }) 
+             
+                      })  
+        </script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html">e-Commerse</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cuenta
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="iniciar_sesion.html">Iniciar sesión</a>
+                        <a class="dropdown-item" href="registrate.html">Registrate</a>
+                        
+                        
+                      </div>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                  </form>
+                </div>
+              </nav>
+    
+    <div class="container">
+        <h3 class="text-center">Registro Productos</h3>                                
+                <form action="hola.html" method="post">
+                  <hr>
+                        <div class="row mt-2">
+                                <div class="col-12 col-md-2 offset-md-3">
+                                        Código de barra:
+                                </div>
+                                <div class="col-12 col-md-5">
+                                        <input type="text" name="txtCodigo"  class="txtCodigo form-control">
+                                </div>        
+                        </div>  
+
+                        <div class="row mt-2">
+                          <div class="col-12 col-md1 offset-md-3">
+                            Descripción:<br>
+                            <textarea cols="50" rows="5">
+                            </textarea>
+                          </div>
+                        </div> 
+
+                        <div class="row mt-2">
+                                <div class="col-12 col-md-2 offset-md-3">
+                                        Precio costo:
+                                </div>
+                                <div class="col-12 col-md-5">
+                                        <input type="text" name="txtPrecio" class="txtPrecio form-control">
+                                </div>        
+                        </div>        
+
+                        <div class="row mt-2">
+                                <div class="col-12 col-md-2 offset-md-3">
+                                        Precio de venta en pesos:
+                                </div>
+                                <div class="col-12 col-md-5">
+                                        <input type="text" name="txtPesos"  class="txtPesos form-control">
+                                </div>        
+                        </div>
+                        
+                        <div class="row mt-2">
+                          <div class="col-12 col-md-2 offset-md-3">
+                                  Marca:
+                          </div>
+                          <div class="col-12 col-md-5">
+                                  <input type="text" name="txtMarca" maxlength="50" class="txtMarca form-control">
+                          </div>        
+                      </div>
+
+                  <div class="row mt-5">
+                    <div class="col-3 col-md-2 offset-md-3">
+                            Opciones
+                    </div>
+                    <div class="col-9 col-md-5">
+                            <input type="submit" name="btnRegistrar" class="btnRegistrar btn btn-info float-right" value="Registrar">
+                    </div>        
+            </div>
+    </form>
+</div>
+</body>
+</html>

@@ -44,12 +44,6 @@
   <p class="text-center">¡Registrate para ser parte de las ofertas y descuentos!</p>
   <form>
 
-
-
-
-
-
-
 	<script>
 		$(function()
 		{
@@ -99,7 +93,17 @@
 					$('.txtFechaNacimiento').focus();
 					return false;
 				}
-				
+				if($("#regisRegion").val() == null)
+				{
+					alert("Debe seleccionar un pais");
+					return false;
+				}
+				if($("#nivEduc").val() == null)
+				{
+					alert("Debe seleccionar un nivel de educación");
+					return false;
+				}
+
 				
 					
 				
@@ -119,7 +123,8 @@
 						"\nTelefono: " + $('.txtTelefono').val()  +
 						"\nEmail: " + $('.txtEmail').val() +
 						"\nFechaNacimiento: " + $('.txtFechaNacimiento').val()  +
-						"\nRut: " + $('.txtRut').val()  
+						"\nRut: " + $('.txtRut').val() +
+						"\nPais: " + $("#regisRegion").val()
 				);
 				
 				return false; 
@@ -225,7 +230,7 @@
 				País:
 			</div>
             <div class="col-12 col-md-5">
-				<select name ="regRegiones">
+				<select name ="regRegiones" id="regisRegion">
 					<option selected="" disabled="">Seleccione un país</option>
 					<option value="Afganistán" id="AF">Afganistán</option>
 					<option value="Albania" id="AL">Albania</option>
@@ -473,7 +478,7 @@
 				Nivel educacional:
 			</div>
             <div class="col-12 col-md-5">
-			    <select name="nivEducacion">
+			    <select name="nivEducacion" id="nivEduc">
                     <option selected="" disabled="">Seleccione su nivel de educación</option>
                     <option value="1">Doctorado</option>
                     <option value="1">Magister</option>
@@ -490,8 +495,6 @@
 					Opciones
 				</div>
 				<div class="col-12 col-md-5">
-
-
 					<input type="submit" name="btnLimpiar" class="btnLimpiar btn btn-light float-right" value="Limpiar">
 					<input type="submit" name="btnAceptar" class="btnAceptar btn btn-danger float-right" value="Enviar">
 				</div>	
